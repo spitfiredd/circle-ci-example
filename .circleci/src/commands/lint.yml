@@ -1,0 +1,6 @@
+description: "Lint"
+steps:
+  - run:
+      name: lint
+      command: |
+        echo Linting code.

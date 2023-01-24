@@ -1,16 +1,16 @@
 commands:
-    another-command:
-        description: Another command
+    lint:
+        description: Lint
         steps:
             - run:
-                command: echo This is another command.
-                name: Run another command
-    basic-command:
-        description: A command
+                command: echo Linting code.
+                name: lint
+    test:
+        description: Test code
         steps:
             - run:
-                command: echo This is where i would setup env.
-                name: Setup env
+                command: echo Running test.
+                name: test
 executors:
     main:
         docker:
@@ -20,16 +20,17 @@ jobs:
         executor: main
         steps:
             - checkout
-            - basic-command
-            - another-command
+            - lint
+            - test
             - run:
-                command: echo "This is where tests would run"
-                name: Run tests
+                command: echo "Completed linting and running tests!"
+                description: Lint and then run tests.
+                name: lint-and-run-tests
         working_directory: /home/circleci/project
 version: 2.1
 workflows:
     main-ci:
         jobs:
             - lint-and-test:
-                name: Run lint & test
+                name: lint-and-test
 

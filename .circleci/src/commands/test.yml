@@ -1,0 +1,6 @@
+description: "Test code"
+steps:
+  - run:
+      name: test
+      command: |
+        echo Running test.

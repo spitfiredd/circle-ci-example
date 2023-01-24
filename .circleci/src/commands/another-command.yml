@@ -1,6 +1,0 @@
-description: "Another command"
-steps:
-  - run:
-      name: Run another command
-      command: |
-        echo This is another command.

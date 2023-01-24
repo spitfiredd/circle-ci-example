@@ -2,9 +2,10 @@ executor: main
 working_directory: /home/circleci/project
 steps:
   - checkout
-  - basic-command
-  - another-command
+  - lint
+  - test
   - run:
-      name: Run tests
+      name: lint-and-run-tests
+      description: Lint and then run tests.
       command: |
-        echo "This is where tests would run"
+        echo "Completed linting and running tests!"
