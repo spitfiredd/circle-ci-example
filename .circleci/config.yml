@@ -1,0 +1,35 @@
+commands:
+    another-command:
+        description: Another command
+        steps:
+            - run:
+                command: echo This is another command.
+                name: Run another command
+    basic-command:
+        description: A command
+        steps:
+            - run:
+                command: echo This is where i would setup env.
+                name: Setup env
+executors:
+    main:
+        docker:
+            - image: circleci/node:latest
+jobs:
+    lint-and-test:
+        executor: main
+        steps:
+            - checkout
+            - basic-command
+            - another-command
+            - run:
+                command: echo "This is where tests would run"
+                name: Run tests
+        working_directory: /home/circleci/project
+version: 2.1
+workflows:
+    main-ci:
+        jobs:
+            - lint-and-test:
+                name: Run lint & test
+

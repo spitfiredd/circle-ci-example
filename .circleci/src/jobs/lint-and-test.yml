@@ -1,0 +1,10 @@
+executor: main
+working_directory: /home/circleci/project
+steps:
+  - checkout
+  - basic-command
+  - another-command
+  - run:
+      name: Run tests
+      command: |
+        echo "This is where tests would run"
